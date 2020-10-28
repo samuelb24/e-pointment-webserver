@@ -1,4 +1,3 @@
-const googleAuth = require('../models/googleAuth');
 const User = require('../models/User');
 
 module.exports  = {
@@ -17,15 +16,17 @@ module.exports  = {
                 await user.save();
             }
             res.send({
-                email, 
-                name,
+                email: user.email, 
+                name: user.name,
                 isNew: user.isnew
             });
         }
         catch(e)
         {
             console.error(e);
-            res.status(401).send('Invalid token');
+            res.status(500).json({
+                message: "Something went wrong"
+            });
         }
         
     }
