@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="741987471320-jvrpnf263i58ramf1bkgh0q9bgamvrme.apps.googleusercontent.com">
+    <title>Document</title>
+</head>
+<body>
+    Hello
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <script>
+        function onSignIn(googleUser)
+        {
+            var profile = googleUser.getBasicProfile();
+            var token = googleUser.getAuthResponse().id_token;
+
+            console.log(token);
+        }
+    </script>
+</body>
+</html>
