@@ -3,6 +3,11 @@ const googleAuth = require('../models/googleAuth');
 module.exports = {
     auth: async (req, res, next) => {
         let authHeader = req.header('Authorization');
+        if(!authHeader)
+        {
+            return res.status(401).send('Invalid token');
+        }
+
         let token = authHeader.split(' ')[1];
         try
         {
